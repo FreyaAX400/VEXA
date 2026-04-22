@@ -1157,16 +1157,10 @@ pub struct ConfidencePipeline {
     pub llm_threshold: f32,
 }
 
-impl ConfidencePipeline {
-    pub fn evaluate(&self, input: &str) -> PipelineResult {
-        todo!(
-            // report command detection before other gates
-            // gate 1: syntax — hard gate
-            // gate 2: fuzzy match
-            // gate 3: LLM validation
-        )
-    }
+pub fn evaluate(&self, _input: &str) -> PipelineResult {
+    PipelineResult::Respond(String::new())
 }
+
 
 // ============================================================
 // SECTION 17: OPERATOR LOOP
