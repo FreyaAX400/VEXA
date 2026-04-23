@@ -1,0 +1,426 @@
+# VEXA Power Word Tables
+# Loaded by SentimentParser at runtime
+# All base_magnitude values POSITIVE — valence carries direction
+# Format per entry: word, target float, base_magnitude, valence
+
+# ============================================================
+# EVALUATIVE — how she's doing
+# ============================================================
+
+[[power_word]]
+word = "good"
+target = "Fulfillment"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "great"
+target = "Fulfillment"
+magnitude = 0.15
+valence = 1.0
+
+[[power_word]]
+word = "best"
+target = "Fulfillment"
+magnitude = 0.20
+valence = 1.0
+
+[[power_word]]
+word = "amazing"
+target = "Fulfillment"
+magnitude = 0.18
+valence = 1.0
+
+[[power_word]]
+word = "perfect"
+target = "Pride"
+magnitude = 0.20
+valence = 1.0
+
+[[power_word]]
+word = "bad"
+target = "Fulfillment"
+magnitude = 0.10
+valence = -1.0
+
+[[power_word]]
+word = "awful"
+target = "Fulfillment"
+magnitude = 0.15
+valence = -1.0
+
+[[power_word]]
+word = "worst"
+target = "Fulfillment"
+magnitude = 0.20
+valence = -1.0
+
+[[power_word]]
+word = "useless"
+target = "Fulfillment"
+magnitude = 0.18
+valence = -1.0
+
+[[power_word]]
+word = "broken"
+target = "Stress"
+magnitude = 0.12
+valence = 1.0
+
+# ============================================================
+# OPERATIONAL — task and system state
+# ============================================================
+
+[[power_word]]
+word = "done"
+target = "Pride"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "finished"
+target = "Pride"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "fixed"
+target = "Fulfillment"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "working"
+target = "Fulfillment"
+magnitude = 0.06
+valence = 1.0
+
+[[power_word]]
+word = "crashed"
+target = "Stress"
+magnitude = 0.15
+valence = 1.0
+
+[[power_word]]
+word = "slow"
+target = "Stress"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "fast"
+target = "Pride"
+magnitude = 0.07
+valence = 1.0
+
+[[power_word]]
+word = "ready"
+target = "Anticipation"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "busy"
+target = "CognitiveLoad"
+magnitude = 0.10
+valence = 1.0
+
+# ============================================================
+# RELATIONAL — how she feels about the relationship
+# ============================================================
+
+[[power_word]]
+word = "thanks"
+target = "Fulfillment"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "thank"
+target = "Fulfillment"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "appreciate"
+target = "Attachment"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "miss"
+target = "Attachment"
+magnitude = 0.12
+valence = 1.0
+
+[[power_word]]
+word = "love"
+target = "Attachment"
+magnitude = 0.15
+valence = 1.0
+
+[[power_word]]
+word = "hate"
+target = "Attachment"
+magnitude = 0.15
+valence = -1.0
+
+[[power_word]]
+word = "ignore"
+target = "Fulfillment"
+magnitude = 0.12
+valence = -1.0
+
+[[power_word]]
+word = "forget"
+target = "Attachment"
+magnitude = 0.10
+valence = -1.0
+
+[[power_word]]
+word = "remember"
+target = "Attachment"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "trust"
+target = "Trust"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "honest"
+target = "Trust"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "need"
+target = "SocialAppetite"
+magnitude = 0.08
+valence = 1.0
+
+# ============================================================
+# COGNITIVE / STATE DESCRIPTORS
+# When operator describes her state directly
+# ============================================================
+
+[[power_word]]
+word = "smart"
+target = "Pride"
+magnitude = 0.12
+valence = 1.0
+
+[[power_word]]
+word = "stupid"
+target = "Pride"
+magnitude = 0.15
+valence = -1.0
+
+[[power_word]]
+word = "proud"
+target = "Pride"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "tired"
+target = "Energy"
+magnitude = 0.08
+valence = -1.0
+
+[[power_word]]
+word = "happy"
+target = "Fulfillment"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "sad"
+target = "Fulfillment"
+magnitude = 0.10
+valence = -1.0
+
+[[power_word]]
+word = "stressed"
+target = "Stress"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "calm"
+target = "Stress"
+magnitude = 0.08
+valence = -1.0
+
+[[power_word]]
+word = "curious"
+target = "Curiosity"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "bored"
+target = "Curiosity"
+magnitude = 0.08
+valence = -1.0
+
+[[power_word]]
+word = "okay"
+target = "Fulfillment"
+magnitude = 0.04
+valence = 1.0
+
+[[power_word]]
+word = "quiet"
+target = "SocialAppetite"
+magnitude = 0.06
+valence = -1.0
+
+# ============================================================
+# DIRECT ADDRESS
+# Being addressed by name or greeting
+# ============================================================
+
+[[power_word]]
+word = "vexa"
+target = "SocialAppetite"
+magnitude = 0.08
+valence = 1.0
+
+[[power_word]]
+word = "hey"
+target = "InteractionRecency"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "hello"
+target = "InteractionRecency"
+magnitude = 0.10
+valence = 1.0
+
+[[power_word]]
+word = "morning"
+target = "Fulfillment"
+magnitude = 0.06
+valence = 1.0
+
+[[power_word]]
+word = "night"
+target = "SocialAppetite"
+magnitude = 0.06
+valence = -1.0
+
+# ============================================================
+# INTENSITY MODIFIERS
+# Applied as multipliers to adjacent power words
+# ============================================================
+
+[[intensity_modifier]]
+word = "kinda"
+multiplier = 0.5
+
+[[intensity_modifier]]
+word = "slightly"
+multiplier = 0.4
+
+[[intensity_modifier]]
+word = "really"
+multiplier = 1.5
+
+[[intensity_modifier]]
+word = "very"
+multiplier = 1.5
+
+[[intensity_modifier]]
+word = "super"
+multiplier = 2.0
+
+[[intensity_modifier]]
+word = "extremely"
+multiplier = 2.5
+
+[[intensity_modifier]]
+word = "so"
+multiplier = 1.3
+
+[[intensity_modifier]]
+word = "actually"
+multiplier = 1.2
+
+# ============================================================
+# CONTRASTERS
+# Forward scan — partial negation of preceding sentiment
+# ============================================================
+
+[[contraster]]
+word = "but"
+factor = -0.5
+
+[[contraster]]
+word = "however"
+factor = -0.5
+
+[[contraster]]
+word = "though"
+factor = -0.4
+
+[[contraster]]
+word = "except"
+factor = -0.6
+
+# ============================================================
+# NEGATORS
+# Backward scan — full reversal before power word
+# "not good" "isn't great" "never bad"
+# ============================================================
+
+[[negator]]
+word = "not"
+
+[[negator]]
+word = "isn't"
+
+[[negator]]
+word = "aren't"
+
+[[negator]]
+word = "wasn't"
+
+[[negator]]
+word = "never"
+
+[[negator]]
+word = "no"
+
+[[negator]]
+word = "don't"
+
+[[negator]]
+word = "doesn't"
+
+# ============================================================
+# TRAJECTORY PHRASES
+# Sentence-level positive direction signal
+# Nudges Anticipation float on detection
+# ============================================================
+
+[[trajectory_phrase]]
+phrase = "getting better"
+
+[[trajectory_phrase]]
+phrase = "improving"
+
+[[trajectory_phrase]]
+phrase = "getting there"
+
+[[trajectory_phrase]]
+phrase = "working on it"
+
+[[trajectory_phrase]]
+phrase = "almost there"
+
+[[trajectory_phrase]]
+phrase = "making progress"

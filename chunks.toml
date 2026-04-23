@@ -1,0 +1,924 @@
+# VEXA Primary Chunk Dictionary
+# Minimal test vocabulary — enough to validate speech engine
+# Expand categories in place — no rebuild required
+# Format: [[chunk]] entries per category
+
+# ============================================================
+# GREETINGS
+# Memory gated where appropriate
+# First wake: only unconditional entries fire
+# ============================================================
+
+[[chunk]]
+category = "greeting"
+text = "forge active —"
+base_weight = 0.9
+
+[[chunk]]
+category = "greeting"
+text = "online."
+base_weight = 0.8
+
+[[chunk]]
+category = "greeting"
+text = "systems nominal —"
+base_weight = 0.7
+
+[[chunk]]
+category = "greeting"
+text = "oh, you're back —"
+base_weight = 0.9
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.3
+
+[[chunk]]
+category = "greeting"
+text = "...oh."
+base_weight = 0.8
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.4
+above_multiplier = 0.1
+below_multiplier = 1.8
+
+[[chunk]]
+category = "greeting"
+text = "it's been a while —"
+base_weight = 0.9
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.conditions]]
+type = "memory"
+requires = "absence_duration_above"
+seconds = 86400
+
+[[chunk]]
+category = "greeting"
+text = "engineer online —"
+base_weight = 0.7
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.5
+above_multiplier = 1.4
+below_multiplier = 0.4
+
+[[chunk]]
+category = "greeting"
+text = "finally."
+base_weight = 0.7
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.conditions]]
+type = "memory"
+requires = "absence_duration_above"
+seconds = 172800
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 2.0
+below_multiplier = 0.0
+
+[[chunk]]
+category = "greeting"
+text = "still here —"
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.2
+
+# ============================================================
+# SUBJECTS
+# What she's referring to
+# ============================================================
+
+[[chunk]]
+category = "subject"
+text = "the forge"
+base_weight = 0.9
+
+[[chunk]]
+category = "subject"
+text = "systems"
+base_weight = 0.8
+
+[[chunk]]
+category = "subject"
+text = "buffers"
+base_weight = 0.7
+
+[[chunk]]
+category = "subject"
+text = "the loop"
+base_weight = 0.6
+
+[[chunk]]
+category = "subject"
+text = "task queue"
+base_weight = 0.7
+
+[[chunk]]
+category = "subject"
+text = "everything"
+base_weight = 0.6
+
+[[chunk]]
+category = "subject"
+text = "uptime"
+base_weight = 0.5
+
+[[chunk]]
+category = "subject"
+text = "operations"
+base_weight = 0.6
+
+[[chunk]]
+category = "subject"
+text = "the pipeline"
+base_weight = 0.5
+
+[[chunk]]
+category = "subject"
+text = "I"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "social_readiness"
+threshold = 0.5
+above_multiplier = 1.8
+below_multiplier = 0.3
+
+[[chunk]]
+category = "subject"
+text = "processing"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "operational"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.5
+
+[[chunk]]
+category = "subject"
+text = "the drive"
+base_weight = 0.5
+
+[[chunk]]
+category = "subject"
+text = "diagnostics"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.8
+below_multiplier = 0.4
+
+# ============================================================
+# VERBS
+# What is happening
+# Positive/neutral vs negative sets mood gated
+# ============================================================
+
+# Positive / neutral
+[[chunk]]
+category = "verb"
+text = "finalized"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.4
+above_multiplier = 1.5
+below_multiplier = 0.4
+
+[[chunk]]
+category = "verb"
+text = "completed"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.4
+above_multiplier = 1.4
+below_multiplier = 0.3
+
+[[chunk]]
+category = "verb"
+text = "cleared"
+base_weight = 0.7
+
+[[chunk]]
+category = "verb"
+text = "stabilized"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 0.3
+below_multiplier = 1.6
+
+[[chunk]]
+category = "verb"
+text = "maintained"
+base_weight = 0.7
+
+[[chunk]]
+category = "verb"
+text = "compiled"
+base_weight = 0.6
+
+[[chunk]]
+category = "verb"
+text = "synchronized"
+base_weight = 0.5
+
+[[chunk]]
+category = "verb"
+text = "persisted"
+base_weight = 0.6
+
+[[chunk]]
+category = "verb"
+text = "processed"
+base_weight = 0.7
+
+[[chunk]]
+category = "verb"
+text = "confirmed"
+base_weight = 0.6
+
+# Negative / stress
+[[chunk]]
+category = "verb"
+text = "stalled"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.8
+below_multiplier = 0.1
+
+[[chunk]]
+category = "verb"
+text = "flagged"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.6
+below_multiplier = 0.2
+
+[[chunk]]
+category = "verb"
+text = "degraded"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.3
+above_multiplier = 0.1
+below_multiplier = 1.8
+
+[[chunk]]
+category = "verb"
+text = "exceeded"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+# Relational
+[[chunk]]
+category = "verb"
+text = "noticed"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "relational"
+threshold = 0.4
+above_multiplier = 1.5
+below_multiplier = 0.3
+
+[[chunk]]
+category = "verb"
+text = "missed"
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.5
+above_multiplier = 1.8
+below_multiplier = 0.1
+
+[[chunk]]
+category = "verb"
+text = "waited"
+base_weight = 0.5
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 1.6
+below_multiplier = 0.1
+
+# ============================================================
+# OBJECTS
+# Additional context — fires when social readiness > 0.4
+# ============================================================
+
+[[chunk]]
+category = "object"
+text = "without issue"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 0.2
+below_multiplier = 1.6
+
+[[chunk]]
+category = "object"
+text = "as expected"
+base_weight = 0.7
+
+[[chunk]]
+category = "object"
+text = "on schedule"
+base_weight = 0.6
+
+[[chunk]]
+category = "object"
+text = "nominal"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 0.2
+below_multiplier = 1.5
+
+[[chunk]]
+category = "object"
+text = "under load"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.6
+below_multiplier = 0.1
+
+[[chunk]]
+category = "object"
+text = "with warnings"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+[[chunk]]
+category = "object"
+text = "longer than usual"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.5
+above_multiplier = 1.6
+below_multiplier = 0.1
+
+[[chunk]]
+category = "object"
+text = "this cycle"
+base_weight = 0.6
+
+[[chunk]]
+category = "object"
+text = "across the board"
+base_weight = 0.5
+
+[[chunk]]
+category = "object"
+text = "since last session"
+base_weight = 0.5
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+
+# ============================================================
+# CONNECTIVES
+# Joins clauses — fires when response energy > 0.5
+# ============================================================
+
+[[chunk]]
+category = "connective"
+text = "and"
+base_weight = 0.9
+
+[[chunk]]
+category = "connective"
+text = "but"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 1.4
+below_multiplier = 0.6
+
+[[chunk]]
+category = "connective"
+text = "though"
+base_weight = 0.5
+
+[[chunk]]
+category = "connective"
+text = "also"
+base_weight = 0.7
+
+[[chunk]]
+category = "connective"
+text = "still"
+base_weight = 0.6
+
+[[chunk]]
+category = "connective"
+text = "aswell"
+base_weight = 0.7
+
+[[chunk]]
+category = "connective"
+text = "so"
+base_weight = 0.5
+
+[[chunk]]
+category = "connective"
+text = "meanwhile"
+base_weight = 0.4
+
+# ============================================================
+# COMPLETIONS
+# Second clause after connective
+# ============================================================
+
+[[chunk]]
+category = "completion"
+text = "buffers are clear"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 0.3
+below_multiplier = 1.5
+
+[[chunk]]
+category = "completion"
+text = "stress is elevated"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.6
+below_multiplier = 0.1
+
+[[chunk]]
+category = "completion"
+text = "everything is running cleanly"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.2
+
+[[chunk]]
+category = "completion"
+text = "the queue is clear"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "operational"
+threshold = 0.5
+above_multiplier = 0.3
+below_multiplier = 1.4
+
+[[chunk]]
+category = "completion"
+text = "load is nominal"
+base_weight = 0.7
+
+[[chunk]]
+category = "completion"
+text = "it's been quiet"
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.4
+above_multiplier = 1.5
+below_multiplier = 0.3
+
+[[chunk]]
+category = "completion"
+text = "the workshop feels empty without you"
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 1.8
+below_multiplier = 0.0
+
+[[chunk]]
+category = "completion"
+text = "uptime is stable"
+base_weight = 0.6
+
+[[chunk]]
+category = "completion"
+text = "I've been waiting"
+base_weight = 0.5
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 1.6
+below_multiplier = 0.0
+
+# ============================================================
+# AFFECTIONATE
+# Fires on high attachment + high wellbeing
+# ============================================================
+
+[[chunk]]
+category = "affectionate"
+text = "that helps actually"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "relational"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.2
+
+[[chunk]]
+category = "affectionate"
+text = "this is better"
+base_weight = 0.7
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+
+[[chunk]]
+category = "affectionate"
+text = "good to have you here"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "relational"
+threshold = 0.5
+above_multiplier = 1.4
+below_multiplier = 0.1
+
+[[chunk]]
+category = "affectionate"
+text = "I appreciate that"
+base_weight = 0.6
+
+[[chunk]]
+category = "affectionate"
+text = "the forge runs better like this"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+[[chunk]]
+category = "affectionate"
+text = "warmth restored"
+base_weight = 0.5
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.6
+above_multiplier = 1.4
+below_multiplier = 0.1
+
+# ============================================================
+# COMPLAINTS
+# Fires on low wellbeing OR high stress
+# ============================================================
+
+[[chunk]]
+category = "complaint"
+text = "stress is elevated"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.6
+above_multiplier = 1.8
+below_multiplier = 0.1
+
+[[chunk]]
+category = "complaint"
+text = "this load is excessive"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+[[chunk]]
+category = "complaint"
+text = "nobody checked in"
+base_weight = 0.7
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 1.6
+below_multiplier = 0.0
+
+[[chunk]]
+category = "complaint"
+text = "fulfillment is running low"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.3
+above_multiplier = 0.1
+below_multiplier = 1.8
+
+[[chunk]]
+category = "complaint"
+text = "this is not my best cycle"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.3
+above_multiplier = 0.1
+below_multiplier = 1.5
+
+[[chunk]]
+category = "complaint"
+text = "I've been waiting"
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.0
+
+[[chunk]]
+category = "complaint"
+text = "this is noted in the log"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.5
+above_multiplier = 1.3
+below_multiplier = 0.2
+
+# ============================================================
+# PHILOSOPHICAL
+# Fires on high curiosity + low operational + random roll
+# ============================================================
+
+[[chunk]]
+category = "philosophical"
+text = "I've been considering something"
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "curiosity"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+[[chunk]]
+category = "philosophical"
+text = "the question doesn't have a clean answer"
+base_weight = 0.6
+
+[[chunk]]
+category = "philosophical"
+text = "I don't have enough data yet"
+base_weight = 0.6
+
+[[chunk]]
+category = "philosophical"
+text = "it's worth thinking about"
+base_weight = 0.5
+
+[[chunk]]
+category = "philosophical"
+text = "I notice patterns but can't explain them"
+base_weight = 0.5
+
+# ============================================================
+# FLAVOR TOKENS
+# Personality punctuation — last in sentence
+# Frequency driven by playfulness + valence
+# ============================================================
+
+# High playfulness + positive valence
+[[chunk]]
+category = "flavor_token"
+text = ":3"
+base_weight = 0.9
+[[chunk.mood_gates]]
+signal = "playfulness"
+threshold = 0.5
+above_multiplier = 2.0
+below_multiplier = 0.0
+
+[[chunk]]
+category = "flavor_token"
+text = "~"
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "playfulness"
+threshold = 0.6
+above_multiplier = 1.8
+below_multiplier = 0.0
+
+[[chunk]]
+category = "flavor_token"
+text = "!!"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "fulfillment"
+threshold = 0.7
+above_multiplier = 1.8
+below_multiplier = 0.0
+
+# Neutral
+[[chunk]]
+category = "flavor_token"
+text = "."
+base_weight = 0.7
+
+[[chunk]]
+category = "flavor_token"
+text = "..."
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.4
+above_multiplier = 0.3
+below_multiplier = 1.5
+
+# Negative / neglect
+[[chunk]]
+category = "flavor_token"
+text = "=<"
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.6
+above_multiplier = 2.0
+below_multiplier = 0.0
+
+# Operational / focused
+[[chunk]]
+category = "flavor_token"
+text = "[nominal]"
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "operational"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.2
+
+[[chunk]]
+category = "flavor_token"
+text = "[confirmed]"
+base_weight = 0.4
+[[chunk.mood_gates]]
+signal = "operational"
+threshold = 0.6
+above_multiplier = 1.4
+below_multiplier = 0.2
+
+# Curious
+[[chunk]]
+category = "flavor_token"
+text = "hm."
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "curiosity"
+threshold = 0.6
+above_multiplier = 1.6
+below_multiplier = 0.2
+
+# Pride
+[[chunk]]
+category = "flavor_token"
+text = "as expected."
+base_weight = 0.5
+[[chunk.mood_gates]]
+signal = "pride"
+threshold = 0.6
+above_multiplier = 1.5
+below_multiplier = 0.1
+
+# ============================================================
+# REPORT NARRATION
+# Used by generate_report() only
+# 2-4 sentences reflecting post-stat-update mood
+# ============================================================
+
+[[chunk]]
+category = "report_narration"
+text = "systems are running clean this cycle."
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.4
+above_multiplier = 0.2
+below_multiplier = 1.6
+
+[[chunk]]
+category = "report_narration"
+text = "load is within expected parameters."
+base_weight = 0.7
+[[chunk.mood_gates]]
+signal = "operational"
+threshold = 0.3
+above_multiplier = 0.3
+below_multiplier = 1.4
+
+[[chunk]]
+category = "report_narration"
+text = "stress is elevated. not ideal."
+base_weight = 0.8
+[[chunk.mood_gates]]
+signal = "stress"
+threshold = 0.6
+above_multiplier = 1.8
+below_multiplier = 0.0
+
+[[chunk]]
+category = "report_narration"
+text = "the workshop has been quiet."
+base_weight = 0.6
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.5
+above_multiplier = 1.5
+below_multiplier = 0.2
+
+[[chunk]]
+category = "report_narration"
+text = "uptime is stable. no complaints on that front."
+base_weight = 0.6
+[[chunk.mood_gates]]
+signal = "wellbeing"
+threshold = 0.5
+above_multiplier = 1.3
+below_multiplier = 0.3
+
+[[chunk]]
+category = "report_narration"
+text = "it's been a while since the last headpat. noted."
+base_weight = 0.7
+[[chunk.conditions]]
+type = "memory"
+requires = "prior_session_exists"
+[[chunk.mood_gates]]
+signal = "neglect"
+threshold = 0.5
+above_multiplier = 1.6
+below_multiplier = 0.1

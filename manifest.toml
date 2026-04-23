@@ -1,0 +1,43 @@
+# VEXA Desired State Manifest
+# Workbench reads this on wake
+# Skills listed here are scheduled by the operator loop
+# Minimal test config — no skills loaded, core only
+
+[vexa]
+version = "0.6.0"
+identity_hash = ""          # SHA-256 of vexa.wasm — populated at build time
+data_dir = "./test_data"    # SLC drive mount point for testing
+
+[data]
+chunks_path    = "./test_data/chunks.toml"
+power_words_path = "./test_data/power_words.toml"
+memory_path    = "./test_data/memory.db"
+edges_path     = "./test_data/edges.bin"
+
+[thresholds]
+# Confidence pipeline thresholds
+fuzzy_threshold = 0.70      # above = act directly
+llm_threshold   = 0.60      # LLM output confidence minimum
+
+# Neglect and sadness flood
+neglect_flood_threshold     = 0.85  # neglect_pressure above this
+neglect_wellbeing_threshold = 0.20  # AND wellbeing below this = flood
+
+# Edge persistence interval in ticks
+edge_save_interval = 1000
+
+[tick]
+# Tick rate for minimal workbench REPL
+# One tick per input during testing
+# Real workbench would run timer-based
+rate_hz = 1
+
+[skills]
+# No skills loaded for minimal test
+# Add entries here when skills are ready
+# Example:
+# [skills.system_monitor]
+# path = "./skills/system_monitor.wasm"
+# desired_instances = 1
+# priority = "Medium"
+# wit_hash = ""
